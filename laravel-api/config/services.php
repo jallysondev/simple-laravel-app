@@ -35,4 +35,7 @@ return [
         ],
     ],
 
+    'mockservice' => [
+        'base_url' => env('MOCK_SERVICE_BASE_URL', 'http://localhost:3001'),
+    ],
 ];

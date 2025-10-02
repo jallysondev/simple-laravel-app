@@ -5,17 +5,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/api/users', (req, res) => {
+app.get('/api/orders', (req, res) => {
     res.json([
-        { id: 1, name: 'Tony Stark', age: 27 },
-        { id: 2, name: 'Hulk', age: 28 },
+        { id: 1, product: 'Macbook Air m4', price: 7000, status: 'paid' },
+        { id: 2, product: 'Iphone 17 Pro Max', price: 11000, status: 'pending' },
     ]);
-});
-
-app.post('/api/users', (req, res) => {
-    const user = req.body;
-    user.id = Math.floor(Math.random() * 1000);
-    res.status(201).json(user);
 });
 
 const PORT = 3001;

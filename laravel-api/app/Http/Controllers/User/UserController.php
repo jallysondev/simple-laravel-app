@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Services\User\UserService;
 use Exception;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -19,7 +20,7 @@ class UserController extends Controller
         protected readonly UserService $userService
     ) {}
 
-    public function index()
+    public function index(): AnonymousResourceCollection|JsonResponse
     {
         try {
             return UserResource::collection($this->userService->getAll());
